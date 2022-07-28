@@ -1,20 +1,35 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+	"compilerOptions": {
+		"target": "es2021",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		// This must be specified if "paths" is set
+		"baseUrl": ".",
+		// Relative to "baseUrl"
+		"paths": {
+			"@components/*": ["./src/components/*"],
+			"@parts/*": ["./src/parts/*"],
+			"@configs/*": ["./src/configs/*"],
+			"@action/*": ["./src/store/action-creators/*"],
+			"@action/interface/*": ["./src/store/action-interface/*"],
+			"@reducer/*": ["./src/store/reducer/*"],
+			"@store/*": ["./src/store/*"],
+			"@utils/*": ["./src/utils/*"],
+			"@image/*": ["./src/assets/images/*"],
+			"@validation/*": ["./src/Validations/*"]
+		}
+	},
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules"]
 }

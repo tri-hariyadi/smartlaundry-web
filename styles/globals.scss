@@ -1,0 +1,138 @@
+// @import '~bootstrap/scss/bootstrap.scss';
+$enable-negative-margins: true;
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'variables';
+
+//pages
+@import 'member';
+@import 'home';
+@import 'error';
+
+//components
+@import 'components/button';
+@import 'components/fields/checkbox_radio';
+@import 'components/table';
+@import 'components/card';
+
+//parts
+@import 'parts/layout';
+@import 'parts/signin_signup';
+@import 'parts/services';
+@import 'parts/dashboard';
+
+html body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.brand-text-icon {
+  font-size: 26px;
+  font-weight: 700;
+  color: $primary;
+  box-shadow: none !important;
+  background-color: transparent;
+  border: none;
+
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+
+@media only screen and (max-width: 712px) {
+  .container-fluid {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+//swall custom
+.swal-modal {
+  border-radius: 15px;
+}
+
+.swal-text {
+  text-align: center;
+  max-width: 90%;
+  line-height: 1.6;
+}
+
+.swal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding: 20px 16px;
+  margin-bottom: 5px;
+
+  & .swal-button-container {
+    min-width: 18%;
+
+    & .swal-button {
+      width: 100%;
+      font-size: 16px;
+      padding: .625em 1.1em;
+      font-weight: normal;
+
+      &.swal-button--confirm {
+        background-color: #2778c4;
+      }
+
+      &.swal-button--cancel {
+        background-color: #757575;
+        color: #fff;
+      }
+
+      &.swal-button--danger {
+        background-color: #e64942 !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .swal-modal {
+    width: calc(100% - 60px);
+  }
+
+  .swal-title {
+    font-size: 22px;
+  }
+
+  .swal-text {
+    font-size: 15px;
+  }
+
+  .swal-icon {
+    margin: 0 auto;
+  }
+
+  .swal-footer {
+    padding: 15px 16px;
+
+    & .swal-button-container .swal-button {
+      font-size: 14.5px;
+    }
+  }
+}
+
+.modal-content {
+  border-radius: 0.8rem;
+}
+
+.animated.fadeIn {
+  animation: fadeIn 0.3s ease-in both;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}

@@ -1,0 +1,57 @@
+.container {
+  max-width: 380px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 55px;
+  // display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  & input {
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+    margin-left: 0;
+    min-height: 38px;
+
+    &:focus {
+      background: none;
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    &::placeholder {
+      color: #aaa;
+      font-weight: 500;
+    }
+  }
+}
+
+.iconInput {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  font-size: 1.2rem;
+}
+
+.btnIcon {
+  background: none;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 1rem;
+}

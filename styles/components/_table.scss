@@ -1,0 +1,128 @@
+.react-bootstrap-table-pagination-total {
+  color: #828282;
+  font-size: 0.8rem;
+}
+.pagination {
+  margin-bottom: 0;
+  .page-item {
+    .page-link {
+      background-color: transparent;
+      border: 0;
+      color: $yellow;
+      padding: 0.25rem 0.7rem;
+      margin: 0 0.25rem;
+    }
+    &.active {
+      .page-link {
+        z-index: 0 !important;
+        background-color: $yellow;
+        color: $white;
+        border-radius: 8px;
+      }
+    }
+    &.disabled {
+      .page-link {
+        background-color: transparent;
+        color: #888888;
+      }
+    }
+  }
+}
+
+//bootstrap-table
+.search-bar {
+  margin-bottom: 0;
+  width: 100%;
+  border: solid 1px #CFD8DC;
+  font-family: FontAwesome, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  text-decoration: inherit;
+  color: #78909c;
+  min-height: 40px;
+
+  &::-webkit-input-placeholder {
+    font-family: FontAwesome, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration: inherit;
+    color: #78909c;
+  }
+
+  &::-moz-placeholder {
+    font-family: FontAwesome, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration: inherit;
+    color: #78909c;
+  }
+
+  &:-moz-placeholder {
+    font-family: FontAwesome, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration: inherit;
+    color: #78909c;
+  }
+
+}
+
+tr.header-class {
+  background-color: #e7ebee;
+  & th {
+    padding: 0.8rem 0.75rem;
+    vertical-align: middle;
+  }
+}
+
+.react-bootstrap-table.table-responsive.mt-3 {
+  padding: 1px;
+
+  & table {
+    table-layout: unset;
+  }
+}
+
+.table > :not(:first-child){
+  border-top: 2px solid #dee2e6;
+}
+
+.table {
+  border-color: rgba(0, 0, 0, 0.3);
+
+  & thead tr {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    outline: 1px solid rgba(0, 0, 0, 0.3);
+
+    & th {
+      &:not(:first-child, :last-child) {
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+      }
+
+      &:first-child {
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+      }
+
+      &:last-child {
+        border-left: 1px solid rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}
+
+thead, tbody, tfoot, tr, td, th {
+  border-style: none;
+}
+
+.table-striped tbody {
+  & tr {
+    & td {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+}

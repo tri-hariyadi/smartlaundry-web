@@ -1,0 +1,161 @@
+div.service-detail-container {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 2.5rem;
+
+  .skeleton-image {
+    height: 18rem;
+  }
+
+  .skeleton-image-content-wrapp {
+    display: flex;
+    align-items: center;
+
+    & span {
+      width: 100%;
+      display: flex;
+      margin: 0.5rem 0;
+
+      & .skeleton-image-content:not(:first-child):not(:last-child) {
+        margin-left: 0.5rem;
+        height: 50px;
+      }
+    }
+  }
+}
+
+div.service-detail-container {
+  & div.image-container {
+    & div:not(.banner-main-service):not(.banner-main-service div) {
+      width: 100%;
+      height: 300px;
+
+      & span {
+        width: inherit !important;
+        height: inherit !important;
+        border-radius: 8px;
+      }
+    }
+
+    & div.banner-main-service {
+      display: flex;
+      align-items: center;
+      
+      & :not(:first-child) {
+        margin-left: 0.5rem;
+      }
+
+      & button.img-main-wrapp {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        height: 50px;
+
+        &.isActive {
+          box-shadow: 0 0 0 0.2rem $teal;
+          border-radius: 5px;
+        }
+
+        & span {
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    & button:not(:disabled):not(.img-main-wrapp), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
+      cursor: zoom-in;
+    }
+  }
+}
+
+div.service-detail-container {
+  & div.detail-container {
+    & h5 {
+      font-weight: 600;
+    }
+
+    & hr {
+      margin-top: -0.05rem;
+    }
+
+    & div.desc-wrapper {
+      & p:not(:first-child) span {
+        color: rgba(49,53,59,0.68);
+      }
+    }
+
+    & div.promo-wrapper {
+      & p span {
+        color: rgba(49,53,59,0.68);
+      }
+    }
+
+    & div.sub-service-wrapper {
+      & .subservice-item-wrapper {
+        display: flex;
+        align-items: center;
+        margin: 0.75rem;
+      }
+
+      & .subservice-image {
+        width: 80px;
+        & span {
+          border-radius: 10px;
+        }
+      }
+
+      & button.btn-delete-subservice {
+        border: none;
+        border-radius: 49px;
+        background-color: $danger;
+        width: 1.8rem;
+        height: 1.8rem;
+
+        &:hover {
+          box-shadow: 0 2px 2px 0 rgba($danger, 0.2), 0 6px 10px 0 rgba($danger, 0.3);
+        }
+      }
+    }
+  }
+}
+
+div.service-review-container {
+  & h5.h6 {
+    font-weight: 600;
+  }
+
+  & .star-review {
+    font-size: 3rem;
+    margin-right: 0.5rem;
+  }
+
+  & span.star-value {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+}
+
+//Modal
+div.img-banner-modal-wrapper {
+  display: flex;
+  align-items: center;
+  
+  & :not(:first-child) {
+    margin-left: 0.5rem;
+  }
+
+  & div {
+    width: 100px;
+    height: 100px;
+
+    & span {
+      border-radius: 5px;
+    }
+  }
+}
+
+.text-gray-500 {
+  color: $gray-500;
+}

@@ -1,0 +1,184 @@
+.option-input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	position: relative;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	transition: all 0.15s ease-out 0s;
+	border: 1px solid #000;
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 0.5rem;
+	outline: none;
+
+	&.radio {
+		border-radius: 50%;
+	}
+
+	&.radio::after {
+		border-radius: 50%;
+	}
+
+	&.checkbox {
+		border-radius: 20%;
+	}
+
+	&.checkbox::after {
+		border-radius: 20%;
+	}
+
+	&:hover {
+		-webkit-box-shadow: 0 0 0 0.2rem rgba(#4dbd74, 0.25);
+		box-shadow: 0 0 0 0.2rem rgba(#4dbd74, 0.25);
+	}
+
+	&:focus {
+		box-shadow: 0 0 0 0.2rem rgba(#4dbd74, 0.25);
+	}
+
+	&:checked {
+		background: #4dbd74;
+		border: none;
+		-webkit-box-shadow: 0 0 0 0.2rem rgba(#4dbd74, 0.25);
+		box-shadow: 0 0 0 0.2rem rgba(#4dbd74, 0.25);
+	}
+
+	&:checked::before {
+		height: 20px;
+		width: 20px;
+		position: absolute;
+		font-family: FontAwesome;
+		content: '';
+		display: inline-block;
+		font-size: 17px;
+		color: #fff;
+		text-align: center;
+		line-height: 20px;
+	}
+
+	&:checked::after {
+		-webkit-animation: click-wave 0.8s;
+		-moz-animation: click-wave 0.8s;
+		animation: click-wave 0.8s;
+		background: #4dbd74;
+		content: '';
+		display: block;
+		position: relative;
+		z-index: 100;
+	}
+}
+
+.custom-control-inline {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-right: 1rem;
+}
+
+.custom-control {
+  position: relative;
+  min-height: 1.5rem;
+}
+
+.form-control {
+	border-radius: 0.5rem;
+	font-size: 0.875rem;
+
+	&::placeholder {
+		color: hsl(0, 0%, 50%);
+		font-size: 0.875rem;
+	}
+}
+
+//input file
+div.upload-img-preview {
+  display: flex;
+  align-items: center;
+	flex-wrap: wrap;
+
+	& span.position-relative {
+		width: 30%;
+    height: 200px;
+		margin: 0.3rem;
+
+		& button.remove-img-upload {
+			position: absolute;
+			top: -5px;
+			right: -5px;
+			margin: 0;
+			padding: 0;
+			line-height: 0;
+			outline: 0;
+			border: none;
+			background-color: #FFF;
+			border-radius: 50%;
+
+			& svg {
+				font-size: 1.2rem;
+				color: $danger;
+			}
+		}
+	}
+
+
+  & div {
+    min-width: 100%;
+    height: 100%;
+		cursor: zoom-in;
+
+    & span {
+      border-radius: 5px;
+    }
+  }
+}
+
+//Select Field
+div.select-field {
+	&[aria-label="is-focus"] {
+		& #select-container {
+			box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+			border-color: #86b7fe;
+		}
+	}
+
+	& #select-container {
+		border-radius: 0.5rem;
+		min-height: 40px;
+	}
+
+	&.is-invalid {
+		&[aria-label="is-focus"] {
+			& #select-container {
+				border-color: $danger;
+				box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
+			}
+		}
+
+		& #select-container {
+			border: 1px solid $danger;
+
+			& #select-indicator {
+				padding-right: calc(1.5em + 0.75rem);
+				background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+				background-repeat: no-repeat;
+				background-position: right calc(0.375em + 0.1875rem) center;
+				background-size: calc(0.85em + 0.375rem) calc(0.85em + 0.375rem);
+				transition: none;
+
+				& span {
+					display: none;
+				}
+
+				& div {
+					display: none;
+				}
+			}
+		}
+	}
+}

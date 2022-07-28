@@ -1,0 +1,149 @@
+.title {
+  font-size: 2rem;
+  color: #444;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.btn-signin-signup {
+  height: 49px;
+  width: 170px;
+  background-color: #5995fd !important;
+  border: none;
+  outline: none;
+  padding: 0 !important;
+
+  &:hover {
+    background-color: #4d84e2 !important;
+  }
+
+  & span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & svg.icon {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    & span {
+      font-weight: 700;
+    }
+  }
+}
+
+//register
+.btn-wizard-conainer {
+  display: flex;
+  max-width: 380px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.btn-back {
+  width: 170px;
+  padding: 0 !important;
+  & svg.icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+
+  & span {
+    font-weight: 700;
+  }
+}
+
+.btn-location {
+  margin-left: 12px;
+  margin-top: -7px;
+  margin-bottom: 3px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #acacac;
+
+  &:hover {
+    color: #5995fd;
+  }
+
+  &:active {
+    color: orange;
+  }
+}
+
+.field-role-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  margin-top: 10px;
+
+  & div.dropdown-menu {
+    min-width: 380px;
+    border-radius: 0.5rem;
+  }
+}
+
+.field-role-wrapp {
+  max-width: 380px;
+  width: 100%;
+}
+
+.field-role {
+  max-width: 380px;
+  width: 100%;
+  background-color: #f0f0f0 !important;
+  outline: none !important;
+  border: none;
+  color: #aaa;
+  box-shadow: none !important;
+  min-height: 55px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 1rem !important;
+
+  &:hover {
+    color: #333 !important;
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+  }
+
+  &:active {
+    color: #333 !important;
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+    transform: translateY(0px) !important;
+  }
+
+  &:focus {
+    color: #333 !important;
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+  }
+
+  &::after {
+    margin-right: 5px !important;
+  }
+
+  &.error-field {
+    border: 1px solid red;
+  }
+
+  & .icon {
+    color: #aaa;
+    font-size: 1.4rem;
+  }
+
+  & span {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0.6rem;
+  }
+}

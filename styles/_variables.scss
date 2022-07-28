@@ -1,0 +1,39 @@
+@font-face {
+  font-family: PoppinsRegular;
+  src: url(./fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: PoppinsLight;
+  src: url(./fonts/Poppins/Poppins-Light.ttf) format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: PoppinsExtraLight;
+  src: url(./fonts/Poppins/Poppins-ExtraLight.ttf) format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: PoppinsBold;
+  src: url(./fonts/Poppins/Poppins-Bold.ttf) format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: PoppinsExtraBold;
+  src: url(./fonts/Poppins/Poppins-ExtraBold.ttf) format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FontAwesome;
+  src: url(./fonts/fontawesome-webfont.ttf) format('truetype');
+  font-style: normal;
+}
+
+.text-gray-1 {
+  color: rgba(49, 53, 59, 0.68);
+}

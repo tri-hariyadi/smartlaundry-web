@@ -1,0 +1,26 @@
+.error-area {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-content {
+  & h3 {
+    font-weight: 700;
+  }
+
+  & p {
+    font-size: 1.05rem;
+  }
+
+  a.btn.btn-primary {
+    padding: 0.6rem 2rem;
+    border-radius: 49px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+
+    &:hover {
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+    }
+  }
+}

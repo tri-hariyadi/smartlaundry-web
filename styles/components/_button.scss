@@ -1,0 +1,60 @@
+// @import "../../node_modules/bootstrap/scss/bootstrap-utilities.scss";
+button.btn {
+  padding: 0.5rem 2rem;
+  border-radius: 49px;
+
+  &:active {
+    transform: translateY(-5px);
+  }
+}
+
+button.btn.disabled,
+span.btn.disabled {
+  cursor: not-allowed;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 2rem;
+  border-radius: 49px;
+
+  &:active {
+    transform: translateY(0px) !important;
+  }
+
+  & span span {
+    margin-left: 0.5rem;
+  }
+}
+
+button.btn:not(#pageDropDown) {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+
+  &:hover {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+@each $color,
+$value in $theme-colors {
+  .btn.btn-#{$color} {
+    &.btn-shadow {
+      box-shadow: 0px 8px 10px rgba($value, 0.4) !important;
+
+      &:hover {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.3) !important;
+      }
+    }
+  }
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0b5ed7 !important;
+  border-color: #0a58ca;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #bb2d3b !important;
+  border-color: #b02a37;
+}
