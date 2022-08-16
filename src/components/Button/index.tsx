@@ -61,7 +61,7 @@ const Button = ({
 }: ButtonProps) => {
   const classNames: Array<string> = [];
   if (className) classNames.push(className);
-  if (isPrimary) classNames.push('btn btn-primary');
+  if (isPrimary && !isBtnLink) classNames.push('btn btn-primary');
   if (isSecondary) classNames[classNames.length-1] = 'btn btn-secondary';
   if (isSuccess) classNames[classNames.length-1] = 'btn btn-success';
   if (isDanger) classNames[classNames.length-1] = 'btn btn-danger';
@@ -74,7 +74,7 @@ const Button = ({
   if (isBlock) classNames.push('btn-block');
   if (hasShadow) classNames.push('btn-shadow');
   if (isBtnLink) {
-    classNames.push('btn-link');
+    classNames.push('btn btn-link');
     classNames.forEach((item, idx) => {
       if (item && item.includes('decoration'))
         delete classNames[idx];

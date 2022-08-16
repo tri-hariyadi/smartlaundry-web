@@ -129,7 +129,7 @@ const ModalPromo: React.FC<IProps> = ({ isEdit, children, dataId, laundry_id, ro
                       <Col md='6'>
                         <SelectField
                           name='typeMinOrder'
-                          options={[{ value: 'weight', label: 'Berat' }, { value: 'nominal', label: 'Nominal' }]}
+                          options={[{ value: 'weight', label: 'Berat' }, { value: 'price', label: 'Nominal' }]}
                           label='Tipe Minimal Order' />
                       </Col>
                       <Col md='6'>

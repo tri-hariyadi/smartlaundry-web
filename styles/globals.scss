@@ -13,12 +13,19 @@ $enable-negative-margins: true;
 @import 'components/fields/checkbox_radio';
 @import 'components/table';
 @import 'components/card';
+@import 'components/alert-dialog';
 
 //parts
 @import 'parts/layout';
 @import 'parts/signin_signup';
 @import 'parts/services';
 @import 'parts/dashboard';
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --toastify-z-index: 10001;
+}
 
 html body {
   font-family: 'Poppins', sans-serif;
@@ -127,12 +134,13 @@ html body {
 }
 
 @keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translate3d(0, -20%, 0);
-	}
-	to {
-		opacity: 1;
-		transform: translate3d(0, 0, 0);
-	}
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }

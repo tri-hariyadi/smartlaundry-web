@@ -84,17 +84,17 @@ const RegisterForm: React.FC<RegisterProps> = ({ register, getRoles, role, regis
     <div className='w-100 d-flex align-items-center justify-content-center flex-column'>
       <h2 className='title'>Daftar Akun</h2>
       <Wizard
-        initialValues={{
-          email: 'tri.hariyadi@gmail.com',
-          fullName: 'tri hariyadi',
-          password: 'dewitri1996',
-          phoneNumber: '009324893849',
-          address: {
-            addressName: 'Ruko Pelangi',
-            address: 'Blok Mekar No.8 RT 08/09',
-            detailAddress: 'Ruko Pelangi Nomor.16'
-          }
-        }}
+        // initialValues={{
+        //   email: 'tri.hariyadi@gmail.com',
+        //   fullName: 'tri hariyadi',
+        //   password: 'dewitri1996',
+        //   phoneNumber: '009324893849',
+        //   address: {
+        //     addressName: 'Ruko Pelangi',
+        //     address: 'Blok Mekar No.8 RT 08/09',
+        //     detailAddress: 'Ruko Pelangi Nomor.16'
+        //   }
+        // }}
         onSubmit={onSubmit}>
         <WizardPage
           validate={step1Validation}>

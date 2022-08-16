@@ -20,7 +20,7 @@ interface IProps {
   className?: string;
   hideLabel?: boolean;
   onChange?: (_e: React.ChangeEvent<HTMLInputElement>) => void;
-  formatter?: 'currency' | 'number' | 'letter' | 'allchar' | 'percentage';
+  formatter?: 'currency' | 'number' | 'letter' | 'allchar' | 'percentage' | undefined;
   // input: FieldInputProps<any, HTMLElement>,
   // meta: FieldMetaState<any>
 }
@@ -81,7 +81,7 @@ const InputField = ({
   };
 
   return (
-    <Field name={name} format={fieldFormatter} parse={fieldParse}>
+    <Field name={name} format={formatter && fieldFormatter} parse={formatter && fieldParse}>
       {({ input, meta: { touched, error } }) => (
         <FormGroup>
           {label &&
@@ -125,12 +125,12 @@ InputField.defaultProps = {
   readOnly: false,
   maxLength: undefined,
   autoComplete: 'none',
-  textTransform: 'capitalize',
+  textTransform: 'none',
   style: undefined,
   hideLabel: false,
   className: '',
   onChange: undefined,
-  formatter: 'allchar'
+  formatter: undefined
 };
 
 export default InputField;

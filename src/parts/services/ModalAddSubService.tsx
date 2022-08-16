@@ -64,7 +64,12 @@ const ModalAddSubService: React.FC<IProps> = ({ toggle, show }) => {
                     <Col md='6'>
                       <SelectField
                         name='type'
-                        options={[{ value: 'Woman', label: 'Woman' }, { value: 'Men', label: 'Men' }]}
+                        options={[
+                          { value: 'Woman', label: 'Woman' },
+                          { value: 'Man', label: 'Man' },
+                          { value: 'Child', label: 'Anak' },
+                          { value: 'Others', label: 'Lainnya' },
+                        ]}
                         label='Tipe Servis' />
                     </Col>
                     <Col md='6'>

@@ -20,10 +20,10 @@ const Dashboard = () => {
   const fetchData = async () => {
     const response = await httpService.get(`users/pengusaha/${token.tokenDecode().aud}`,
       { headers: Constants.authHeader() });
-    // if (!response.data.result || response.data.status !== 200) {
-    //   swal('Warning', 'Buat nama laundry dulu, biar bisa online', 'warning')
-    //     .then(() => setShow(true));
-    // }
+    if (!response.data.result || response.data.status !== 200) {
+      swal('Warning', 'Buat nama laundry dulu, biar bisa online', 'warning')
+        .then(() => setShow(true));
+    }
   };
 
   useEffect(() => {

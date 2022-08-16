@@ -76,6 +76,7 @@ function MyApp({ Component, pageProps, statusCode }: AppProps & Props) {
       navigator.serviceWorker.addEventListener(
         'message',
         (event) => {
+          console.log(event);
           swal({
             title: event.data.data.title,
             text: event.data.data.message,
@@ -138,6 +139,18 @@ function MyApp({ Component, pageProps, statusCode }: AppProps & Props) {
     return (
       <Provider store={store}>
         <Component {...pageProps} />
+        <ToastContainer
+          theme='dark'
+          position='top-right'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </Provider>
     );
   }

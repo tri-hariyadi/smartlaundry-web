@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import swal from 'sweetalert';
 import { Form } from 'react-final-form';
 import { connect, useDispatch } from 'react-redux';
@@ -8,36 +8,65 @@ import InputField from '@components/fields/InputField';
 import Button from '@components/Button';
 import StockAct from '@action/StockAction';
 import { RootState } from '@store/store';
-import { typeListStock } from '@action/interface/stock';
+import { typeInOutStock, typeListStock } from '@action/interface/stock';
+import SelectField from '@components/fields/SelectField';
 
 interface IProps {
   isEdit?: boolean;
   children: (_toggle: () => void) => ReactNode;
   dataId?: string;
   id_laundry?: string | null;
-  row?: typeListStock
+  row?: typeInOutStock;
+  stockList?: Array<typeListStock>
 }
 
-const ModalStock: React.FC<IProps> = ({ isEdit, children, dataId, id_laundry, row }) => {
+const ModalStock: React.FC<IProps> = ({ isEdit, children, dataId, id_laundry, row, stockList }) => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
+  useEffect(() => {
+    StockAct.getStock(id_laundry as string);
+  }, []);
+
+  const dataOptions = (): Array<{value: string, label:string}> => {
+    const update_data: Array<{value: string, label:string}> = [];
+    if (stockList && stockList.length) {
+      stockList.forEach((item) => {
+        update_data.push({
+          value: item._id,
+          label: `${item.code} - ${item.itemName}`
+        });
+      });
+    }
+    return update_data;
+  };
+
   const toggle = () => setShow(v => !v);
 
-  const onSubmit = async (values: typeListStock) => {
+  const onSubmit = async (values: typeInOutStock) => {
     if (isEdit) {
-      const response = await StockAct.update(dataId as string, values);
+      const response = await StockAct.updateInOut(dataId as string, {
+        stock_id: (values.stock_id as unknown as {value: string, label:string}).value,
+        input: Number(values.input),
+        out: Number(values.out),
+        cost: Number(values.cost)
+      });
       if (response.status === 200) {
         toggle();
         swal('Success', response.message as string, 'success')
-          .then(() => StockAct.getStock(id_laundry as string)(dispatch));
+          .then(() => StockAct.getInOutStock(id_laundry as string)(dispatch));
       } else swal('Error', response.message as string, 'error');
     } else {
-      const response = await StockAct.create(values);
+      const response = await StockAct.createInOut({
+        stock_id: (values.stock_id as unknown as {value: string, label:string}).value,
+        input: Number(values.input),
+        out: Number(values.out),
+        cost: Number(values.cost)
+      });
       if (response.status === 200) {
         toggle();
         swal('Success', response.message as string, 'success')
-          .then(() => StockAct.getStock(id_laundry as string)(dispatch));
+          .then(() => StockAct.getInOutStock(id_laundry as string)(dispatch));
       } else swal('Error', response.message as string, 'error');
     }
   };
@@ -50,13 +79,15 @@ const ModalStock: React.FC<IProps> = ({ isEdit, children, dataId, id_laundry, ro
         size='lg'>
         <ModalHeader className='px-4' toggle={toggle}>
           {isEdit
-            ? <span><FaEdit className='mt-n1 me-1' /> Edit Stock</span>
-            : <span><FaPlus className='mt-n1 me-1' /> Buat Stock</span>
+            ? <span><FaEdit className='mt-n1 me-1' /> Edit In Out Stock</span>
+            : <span><FaPlus className='mt-n1 me-1' /> Buat In Out Stock</span>
           }
         </ModalHeader>
         <Form
           onSubmit={onSubmit}
-          initialValues={row ? {...row} : {laundry: id_laundry}}
+          initialValues={row ? {...row,
+            stock_id: dataOptions().filter(({value}) => row.stock_id === value)
+          } : {laundry: id_laundry}}
           render={
             ({ handleSubmit, submitting }) => (
               <>
@@ -64,18 +95,18 @@ const ModalStock: React.FC<IProps> = ({ isEdit, children, dataId, id_laundry, ro
                   <div className='w-100 mb-3'>
                     <Row>
                       <Col md='6'>
-                        <InputField name='code' label='Kode Item' />
+                        <InputField name='input' label='Masuk' />
                       </Col>
                       <Col md='6'>
-                        <InputField name='itemName' label='Nama Item' />
+                        <InputField name='out' label='Keluar' />
                       </Col>
                     </Row>
                     <Row>
                       <Col md='6'>
-                        <InputField name='quantityType' label='Satuan Item' textTransform='none' />
+                        <SelectField name='stock_id' label='Pilih Barang' options={dataOptions()} />
                       </Col>
                       <Col md='6'>
-                        <InputField name='desc' type='textarea' label='Keterangan' textTransform='none' />
+                        <InputField name='cost' label='Biaya' textTransform='none' formatter='currency' />
                       </Col>
                     </Row>
                   </div>
@@ -105,6 +136,7 @@ const mapStateToProps = (state: RootState) => ({
   id_laundry: state.AuthReducer.userData
     ? state.AuthReducer.userData.laundry._id
     : null,
+  stockList: state.StockReducer.stockList
 });
 
 export default connect(mapStateToProps)(ModalStock);

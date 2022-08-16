@@ -1,5 +1,5 @@
 // @import "../../node_modules/bootstrap/scss/bootstrap-utilities.scss";
-button.btn {
+button.btn:not(.btn-link) {
   padding: 0.5rem 2rem;
   border-radius: 49px;
 
@@ -26,7 +26,20 @@ span.btn.disabled {
   }
 }
 
-button.btn:not(#pageDropDown) {
+button.btn-link.forgot-pwd {
+  text-decoration: none;
+
+  &:active {
+    transform: translateY(-3px) !important;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+button.btn:not(#pageDropDown):not(.btn-link) {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 
   &:hover {

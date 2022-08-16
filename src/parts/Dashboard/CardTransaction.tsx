@@ -71,7 +71,7 @@ const CardTransaction: React.FC<IProps> = ({ userData }) => {
               <div className='box-line' />
               <section>
                 <h6 className='mb-2 text-info'>Proses Laundry</h6>
-                {renderValue(data.process)}
+                {renderValue(data.process || 0)}
               </section>
               <ButtonGroup className='float-right'>
                 <BiRefresh className='icon-dashboard BiRefresh' />

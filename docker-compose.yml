@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  laundrywebapp:
+    container_name: web-smartlaundry-app
+    image: smartlaundry-web
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - '3006:3006'
+    env_file: .env
+    environment:
+      - NODE_ENV=production
+      - PORT=$PORT
+      - NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+      - NEXT_PUBLIC_API_KEY=$NEXT_PUBLIC_API_KEY

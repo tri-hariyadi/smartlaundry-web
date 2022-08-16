@@ -58,7 +58,7 @@ const ExpensesChart: React.FC<IProps> = ({ userData }) => {
         labels: response.result.map((item: any) => item.itemName),
         datasets: [{
           ...v.datasets[0],
-          data: response.result.map((item: any) => item.cost)
+          data: response.result.map((item: any) => item.stock_in_out.length ? item.stock_in_out[0].totalExpenses : 0)
         }]
       }));
     } else {

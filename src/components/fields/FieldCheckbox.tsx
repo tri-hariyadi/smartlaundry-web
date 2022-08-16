@@ -1,13 +1,13 @@
 import React from 'react';
-import propTypes from 'prop-types';
-import { FormGroup } from 'reactstrap';
-import { FieldArrayFieldsProps } from 'redux-form';
+// import propTypes from 'prop-types';
+// import { FormGroup } from 'reactstrap';
+// import { FieldArrayFieldsProps } from 'redux-form';
 
-interface CheckboxProps {
-  fields: FieldArrayFieldsProps
-}
+// interface CheckboxProps {
+//   fields: FieldArrayFieldsProps
+// }
 
-const FieldCheckbox = (props) => {
+const FieldCheckbox = () => {
   return (
     <div>FieldCheckbox</div>
   );

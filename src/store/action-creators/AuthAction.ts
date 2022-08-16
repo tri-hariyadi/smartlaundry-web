@@ -151,6 +151,21 @@ class AuthAction {
     return response;
   };
 
+  public recoveryPassword = async (email: string) => {
+    let response: Partial<{ data: null; message: string; status: number }> = {};
+    await httpService.post('users/recoverypassword', {email}, { headers: Constants.API_HEADERS })
+      .then(res => (response = res.data))
+      .catch((error) => {
+        const err = error as AxiosError;
+        if (err?.response?.data) {
+          response = { data: null, message: err.response.data.message, status: err.response.status };
+        } else {
+          response = { data: null, message: err?.message || 'Gagal Terjadi Kesalahan', status: 500 };
+        }
+      });
+    return response;
+  };
+
 }
 
 export default new AuthAction();

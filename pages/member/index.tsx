@@ -1,16 +1,25 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { FormText } from 'reactstrap';
+import { toast } from 'react-toastify';
+import { Form } from 'react-final-form';
 import LoginForm from '@parts/member/LoginForm';
 import RegisterForm from '@parts/member/RegisterForm';
 import Button from '@components/Button';
 import IconText from '@components/IconText';
 import classNames from '@utils/classNames';
 import token from '@utils/token';
+import InputField from '@components/fields/InputField';
+import AuthAction from '@action/AuthAction';
+import AlertDialog from '@components/AlertDialog';
 
 const Login = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [show, setShow] = useState(false);
   const [isAuth, setIsAuth] = useState<boolean>(true);
+  let submit: (() => void) | undefined;
 
   useEffect(() => {
     authCheck();
@@ -51,6 +60,7 @@ const Login = () => {
             <div className='signinSignup'>
               <div className={classNames('formGroup', 'signInForm')}>
                 <LoginForm />
+                <Button isBtnLink className='mt-2 forgot-pwd' onClick={() => setShow(true)}>Lupa password?</Button>
               </div>
               <div className={classNames('formGroup', 'signUpForm')}>
                 <RegisterForm />
@@ -91,6 +101,39 @@ const Login = () => {
             </div>
           </div>
         </div>
+      }
+      {show &&
+        <AlertDialog
+          show={show} toggle={() => setShow(v => !v)} title='Lupa Password'
+          onClickSubmit={() => submit && submit()}
+          isLoading={loading}>
+          <Form
+            initialValues={{ email: '' }}
+            onSubmit={async(v) => {
+              setLoading(true);
+              document.documentElement.style.setProperty('--toastify-z-index', '10001');
+              const response = await AuthAction.recoveryPassword(v.email);
+              if (response.status === 200) {
+                setShow(false);
+                toast.success(response.message);
+              } else toast.error(response.message);
+              setLoading(false);
+            }}
+            render={
+              ({ handleSubmit }) => {
+                submit = handleSubmit;
+                return (
+                  <div style={{ padding: '0 30px', textAlign: 'left' }}>
+                    <InputField name='email' label='Email' formatter={undefined} />
+                    <FormText style={{ position: 'relative', top: '-0.8rem', left: '0.3rem' }}>
+                      Cek Email Setelah Melakukan Proses Lupa Password
+                    </FormText>
+                  </div>
+                );
+              }
+            }
+          />
+        </AlertDialog>
       }
     </>
   );

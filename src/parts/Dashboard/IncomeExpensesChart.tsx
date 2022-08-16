@@ -68,8 +68,10 @@ const IncomeExpensesChart: React.FC<IProps> = ({ userData }) => {
           {
             ...v.datasets[1],
             data: v.labels.map((month: string) => {
-              const idx = response.result.expenses.findIndex((v: {month: string, total: number}) => v.month === month);
-              if (idx > -1) return response.result.expenses[idx].total;
+              const idx = response.result.expenses[0].stock_in_out.findIndex(
+                (v: {month: string, total: number}) => v.month === month
+              );
+              if (idx > -1) return response.result.expenses[0].stock_in_out[idx].total;
               return 0;
             })
           }

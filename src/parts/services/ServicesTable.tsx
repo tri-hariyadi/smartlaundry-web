@@ -114,5 +114,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(Table({
   actionDelete: true,
   customAction: true,
   childrenBar: ServiceTable.Add,
-  minHeightActionColumn: 170
+  minHeightActionColumn: 170,
+  dataRefreshing: true,
 })(ServiceTable));

@@ -52,8 +52,9 @@ const MothlyChart: React.FC<IProps> = ({ userData }) => {
           ...v.datasets[0],
           data: getAllDaysInMonth(new Date().getFullYear(), new Date().getMonth())
             .map((day) => {
-              if (response.result.filter((item: any) => item.dayOfMonth === day).length) {
-                return response.result.filter((item: any) => item.dayOfMonth === day)[0].totalPrice;
+              if (response.result.filter((item: any) => item._id === day).length) {
+                // return response.result.filter((item: any) => item.dayOfMonth === day)[0].totalPrice;
+                return response.result.filter((item: any) => item._id === day)[0].totalIncome;
               }
               return 0;
             })

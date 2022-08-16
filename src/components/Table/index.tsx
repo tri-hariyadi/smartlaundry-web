@@ -14,9 +14,10 @@ interface IProps {
   actionView?: boolean;
   actionDelete?: boolean;
   customAction?: boolean;
-  childrenBar?: (_handleChange: (_customInput?: any) => void, _data?: any) => ReactChild;
+  childrenBar?: (_handleChange: (_customInput?: any) => void, _props: any, _data?: any) => ReactChild;
   minHeightActionColumn?: number;
   dataRefreshing?: boolean;
+  searchBar?: boolean;
 }
 
 const Table = ({
@@ -29,6 +30,7 @@ const Table = ({
   childrenBar,
   minHeightActionColumn,
   dataRefreshing,
+  searchBar
 }: IProps) => (WrappedComponent: (_props: any) => JSX.Element) => {
   function TableHOC(props: any) {
     const router = useRouter();
@@ -93,6 +95,8 @@ const Table = ({
         columns={finalColumns}
         keyField='_id'
         chidrenBar={childrenBar}
+        searchBar={searchBar}
+        props={props}
       />
     );
   }

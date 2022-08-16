@@ -21,12 +21,14 @@ interface ITableWrapper {
   keyField: string | number | symbol;
   data: Array<any>;
   isLoading: boolean;
-  chidrenBar?: (_handleChange: (_customInput?: any) => void, _data?: any) => ReactChild;
+  searchBar?: boolean;
+  chidrenBar?: (_handleChange: (_customInput?: any) => void, _props?: any, _data?: any) => ReactChild;
   columns: ColumnDescription<any, any>[];
   defaultSort?: [{
     dataField: any;
     order: SortOrder;
-  }] | undefined
+  }] | undefined,
+  props: any
 }
 
 const TableWrapper: React.FC<ITableWrapper> = ({
@@ -40,6 +42,8 @@ const TableWrapper: React.FC<ITableWrapper> = ({
   chidrenBar,
   columns,
   defaultSort,
+  searchBar,
+  props
 }) => {
   return (
     <PaginationProvider
@@ -64,8 +68,8 @@ const TableWrapper: React.FC<ITableWrapper> = ({
           columns={columns}>
           {toolkitprops => (
             <div>
-              <CustomBar toolkitprops={toolkitprops}>
-                {(handleChange) => chidrenBar && chidrenBar(handleChange, data)}
+              <CustomBar toolkitprops={toolkitprops} searchBar={searchBar}>
+                {(handleChange) => chidrenBar && chidrenBar(handleChange, props, data)}
               </CustomBar>
               <BootstrapTable
                 striped
