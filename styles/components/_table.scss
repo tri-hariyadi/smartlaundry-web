@@ -1,32 +1,36 @@
-.react-bootstrap-table-pagination-total {
-  color: #828282;
-  font-size: 0.8rem;
-}
-.pagination {
-  margin-bottom: 0;
-  .page-item {
-    .page-link {
-      background-color: transparent;
-      border: 0;
-      color: $yellow;
-      padding: 0.25rem 0.7rem;
-      margin: 0 0.25rem;
-    }
-    &.active {
-      .page-link {
-        z-index: 0 !important;
-        background-color: $yellow;
-        color: $white;
-        border-radius: 8px;
-      }
-    }
-    &.disabled {
-      .page-link {
-        background-color: transparent;
-        color: #888888;
-      }
-    }
-  }
+// .react-bootstrap-table-pagination-total {
+//   color: #828282;
+//   font-size: 0.8rem;
+// }
+// .pagination {
+//   margin-bottom: 0;
+//   .page-item {
+//     .page-link {
+//       background-color: transparent;
+//       border: 0;
+//       color: $yellow;
+//       padding: 0.25rem 0.7rem;
+//       margin: 0 0.25rem;
+//     }
+//     &.active {
+//       .page-link {
+//         z-index: 0 !important;
+//         background-color: $yellow;
+//         color: $white;
+//         border-radius: 8px;
+//       }
+//     }
+//     &.disabled {
+//       .page-link {
+//         background-color: transparent;
+//         color: #888888;
+//       }
+//     }
+//   }
+// }
+div.react-bootstrap-table-pagination-list {
+  display: flex;
+  justify-content: flex-end;
 }
 
 //bootstrap-table
@@ -73,6 +77,7 @@
 
 tr.header-class {
   background-color: #e7ebee;
+
   & th {
     padding: 0.8rem 0.75rem;
     vertical-align: middle;
@@ -87,7 +92,7 @@ tr.header-class {
   }
 }
 
-.table > :not(:first-child){
+.table> :not(:first-child) {
   border-top: 2px solid #dee2e6;
 }
 
@@ -115,7 +120,12 @@ tr.header-class {
   }
 }
 
-thead, tbody, tfoot, tr, td, th {
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
   border-style: none;
 }
 

@@ -32,8 +32,8 @@ interface ITableWrapper {
 }
 
 const TableWrapper: React.FC<ITableWrapper> = ({
-  page,
-  sizePerPage,
+  // page,
+  // sizePerPage,
   totalSize,
   noPagination,
   keyField,
@@ -48,15 +48,36 @@ const TableWrapper: React.FC<ITableWrapper> = ({
   return (
     <PaginationProvider
       pagination={paginationFactory({
-        custom: true,
-        page,
+        // custom: true,
+        // page,
+        // paginationSize: 3,
+        // sizePerPage,
+        // totalSize,
+        page: 1,
+        pageStartIndex: 1,
         paginationSize: 3,
-        sizePerPage,
-        totalSize,
         prePageText: <FaChevronLeft />,
         nextPageText: <FaChevronRight />,
         alwaysShowAllBtns: true,
-        withFirstAndLast: false
+        withFirstAndLast: false,
+        sizePerPageList: [
+          {
+            text: '5', value: 5
+          },
+          {
+            text: '10', value: 10
+          },
+          {
+            text: '25', value: 25
+          },
+          {
+            text: '30', value: 30
+          },
+          {
+            text: '50', value: 50
+          },
+        ],
+
       })}
     >
       {({ paginationProps, paginationTableProps }) => (
